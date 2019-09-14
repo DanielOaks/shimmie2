@@ -17,4 +17,6 @@ RUN mkdir -p data/config && \
     php index.php && \
     ./vendor/bin/phpunit --configuration tests/phpunit.xml --coverage-text && \
     rm -rf data
+VOLUME /app/data
+RUN chmod +x /app/tests/docker-init.sh
 CMD "/app/tests/docker-init.sh"
